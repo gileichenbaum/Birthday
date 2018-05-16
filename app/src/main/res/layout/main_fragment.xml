@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pelican_activity"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainFragment">
+
+    <EditText
+        android:id="@+id/main_fragment_txt_name"
+        android:layout_width="@dimen/main_fragment_name_txt_width"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_fragment_view_margins"
+        android:hint="@string/enter_your_baby_s_name"
+        android:inputType="textPersonName"
+        android:lines="1"/>
+
+    <Button
+        android:id="@+id/main_fragment_btn_birthday_txt_date"
+        android:layout_width="@dimen/main_fragment_name_txt_width"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_fragment_view_margins"
+        android:background="@drawable/btn_share"
+        android:lines="1"
+        android:paddingStart="@dimen/main_fragment_btn_side_padding"
+        android:paddingLeft="@dimen/main_fragment_btn_side_padding"
+        android:paddingEnd="@dimen/main_fragment_btn_side_padding"
+        android:paddingRight="@dimen/main_fragment_btn_side_padding"
+        android:hint="@string/pick_your_baby_s_birthday"/>
+
+    <ImageView
+        android:id="@+id/main_fragment_img"
+        android:layout_width="@dimen/main_fragment_image_size"
+        android:layout_height="@dimen/main_fragment_image_size"
+        android:layout_marginBottom="@dimen/main_fragment_view_margins"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_photo_white"/>
+
+    <Button
+        android:id="@+id/main_fragment_btn_show_birthday_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_fragment_view_margins"
+        android:background="@drawable/btn_share"
+        android:lines="1"
+        android:paddingStart="@dimen/main_fragment_btn_side_padding"
+        android:paddingLeft="@dimen/main_fragment_btn_side_padding"
+        android:paddingEnd="@dimen/main_fragment_btn_side_padding"
+        android:paddingRight="@dimen/main_fragment_btn_side_padding"
+        android:text="@string/show_birthday_screen"/>
+
+</LinearLayout>

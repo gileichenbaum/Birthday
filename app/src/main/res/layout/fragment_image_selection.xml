@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="@dimen/fragment_image_selection_main_container_padding">
+
+    <Button
+        android:id="@+id/fragment_image_selection_btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fragment_image_selection_view_margin"
+        android:background="@drawable/btn_share"
+        android:drawableStart="@drawable/camera_icon_yellow"
+        android:drawableLeft="@drawable/camera_icon_yellow"
+        android:drawablePadding="5dp"
+        android:lines="1"
+        android:text="@string/take_a_picture"/>
+
+    <Button
+        android:id="@+id/fragment_image_selection_btn_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fragment_image_selection_view_margin"
+        android:background="@drawable/btn_share"
+        android:text="@string/pick_from_gallery"/>
+
+</LinearLayout>
