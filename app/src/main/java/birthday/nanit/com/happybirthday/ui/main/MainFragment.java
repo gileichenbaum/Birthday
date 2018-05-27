@@ -1,6 +1,7 @@
 package birthday.nanit.com.happybirthday.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,12 +24,12 @@ import java.util.Date;
 
 import birthday.nanit.com.happybirthday.R;
 import birthday.nanit.com.happybirthday.utils.Constants;
+import birthday.nanit.com.happybirthday.utils.PreferenceUtil;
 
-public class MainFragment extends Fragment implements TextWatcher, SharedPreferences.OnSharedPreferenceChangeListener {
-
+public class MainFragment extends Fragment implements TextWatcher, SharedPreferences.OnSharedPreferenceChangeListener, ImageSelectionFragment.ImageSelectionListener {
 
     private static final String FRAGMENT_DATE_PICKER_TAG = "date_picker_fragment";
-    private static final String FRAGMENT_IMAGE_SELECTION_TAG = "image_selection_fragment";
+    public static final String FRAGMENT_IMAGE_SELECTION_TAG = "image_selection_fragment";
     private final static DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
 
     private TextView mTxtName;
@@ -62,15 +63,13 @@ public class MainFragment extends Fragment implements TextWatcher, SharedPrefere
             mImageSelectionFragment = (ImageSelectionFragment) fragmentManager.findFragmentByTag(FRAGMENT_IMAGE_SELECTION_TAG);
         }
 
-        if (mDatePickerFragment == null) {
-            mDatePickerFragment = new DatePickerFragment();
-        }
-
         if (mImageSelectionFragment == null) {
             mImageSelectionFragment = new ImageSelectionFragment();
         }
 
-        mDatePickerFragment.setShowsDialog(true);
+        if (mDatePickerFragment == null) {
+            mDatePickerFragment = new DatePickerFragment();
+        }
     }
 
     @Nullable
@@ -100,22 +99,28 @@ public class MainFragment extends Fragment implements TextWatcher, SharedPrefere
         mBtnShowBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(view.getContext(), BirthdayActivity.class);
+                view.getContext().startActivity(intent);
             }
         });
 
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final FragmentManager fragmentManager = getFragmentManager();
-                if (fragmentManager != null) {
-                    mImageSelectionFragment.show(fragmentManager, FRAGMENT_IMAGE_SELECTION_TAG);
-                }
+                showImageSelection(view.getContext());
             }
         });
-
         restoreFromPrefs(mSharedPreferences);
     }
+
+    protected void showImageSelection(Context context) {
+        final FragmentManager fragmentManager = getFragmentManager();
+        if (fragmentManager != null) {
+            mImageSelectionFragment.setListener(this);
+            mImageSelectionFragment.show(fragmentManager, FRAGMENT_IMAGE_SELECTION_TAG);
+        }
+    }
+
 
     private void restoreFromPrefs(SharedPreferences preferences) {
         setBirthDate(preferences.getLong(Constants.PREF_BIRTH_DATE, 0L));
@@ -206,5 +211,14 @@ public class MainFragment extends Fragment implements TextWatcher, SharedPrefere
     private void onPropertyChanged() {
         boolean hasAllData = mBirthDate > 0 && !TextUtils.isEmpty(mName);
         mBtnShowBirthday.setEnabled(hasAllData);
+    }
+
+    @Override
+    public void onImageChanged() {
+        final Context context = getContext();
+        if (context != null) {
+            final Uri imageUri = PreferenceUtil.getImageUri(context);
+            setImageUri(imageUri == null ? null : imageUri.toString());
+        }
     }
 }

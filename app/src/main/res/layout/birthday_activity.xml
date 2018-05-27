@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <birthday.nanit.com.happybirthday.TransparentPositionLayout
+        android:id="@+id/birthday_activity_background_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        app:displayMode="2"/>
+
+    <TextView
+        android:id="@+id/birthday_activity_txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:maxLines="2"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:text="Today Lilly is"/>
+
+    <ImageView
+        android:id="@+id/birthday_activity_img_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/birthday_activity_txt_name"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/n10"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/birthday_activity_img_number"
+        android:layout_alignBottom="@+id/birthday_activity_img_number"
+        android:layout_margin="10dp"
+        android:layout_toStartOf="@+id/birthday_activity_img_number"
+        android:layout_toLeftOf="@+id/birthday_activity_img_number"
+        android:src="@drawable/left_swirls"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/birthday_activity_img_number"
+        android:layout_alignBottom="@+id/birthday_activity_img_number"
+        android:layout_margin="10dp"
+        android:layout_toEndOf="@+id/birthday_activity_img_number"
+        android:layout_toRightOf="@+id/birthday_activity_img_number"
+        android:src="@drawable/right_swirls"/>
+
+    <TextView
+        android:id="@+id/birthday_activity_txt_age_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/birthday_activity_img_number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:text="@string/months_old"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

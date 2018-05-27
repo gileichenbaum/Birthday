@@ -18,6 +18,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.main.BirthdayActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
         <provider
             android:name=".provider.FileProvider"
             android:authorities="${applicationId}"

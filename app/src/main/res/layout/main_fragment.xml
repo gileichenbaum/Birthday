@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pelican_activity"
@@ -26,12 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/main_fragment_view_margins"
         android:background="@drawable/btn_share"
+        android:hint="@string/pick_your_baby_s_birthday"
         android:lines="1"
+        android:maxLines="1"
         android:paddingStart="@dimen/main_fragment_btn_side_padding"
         android:paddingLeft="@dimen/main_fragment_btn_side_padding"
         android:paddingEnd="@dimen/main_fragment_btn_side_padding"
-        android:paddingRight="@dimen/main_fragment_btn_side_padding"
-        android:hint="@string/pick_your_baby_s_birthday"/>
+        android:paddingRight="@dimen/main_fragment_btn_side_padding"/>
 
     <ImageView
         android:id="@+id/main_fragment_img"
