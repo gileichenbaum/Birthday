@@ -72,6 +72,13 @@ public class BirthdayActivity extends AppCompatActivity implements ImageSelectio
             mTransparentPositionLayout.setLayoutId(mLayoutId);
         }
 
+        findViewById(R.id.birthday_activity_btn_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         TextView name = findViewById(R.id.birthday_activity_txt_name);
         name.setText(getString(R.string.today_name_is, PreferenceUtil.getName(this)));
 

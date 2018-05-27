@@ -48,6 +48,7 @@ public class TransparentPositionLayout extends FrameLayout {
     private Drawable mDrawable;
     private ImageView mBtnCamera;
     private Drawable mBackground;
+    private final Rect mDrawableRect = new Rect();
 
     public TransparentPositionLayout(Context context) {
         super(context);
@@ -96,6 +97,7 @@ public class TransparentPositionLayout extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         if (mDrawable != null) {
+            mDrawable.setBounds(mDrawableRect);
             mDrawable.draw(canvas);
         }
         if (mBackground != null) {
@@ -122,7 +124,6 @@ public class TransparentPositionLayout extends FrameLayout {
         } else {
             mDrawable = drawable;
         }
-        refreshPositions(getWidth(), getHeight());
         invalidate();
     }
 
@@ -161,9 +162,7 @@ public class TransparentPositionLayout extends FrameLayout {
                     final int drawableRight = (int) (transparentBounds.right * widthRatio);
                     final int drawableBottom = (int) (transparentBounds.bottom * heightRatio);
 
-                    if (mDrawable != null) {
-                        mDrawable.setBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
-                    }
+                    mDrawableRect.set(drawableLeft, drawableTop, drawableRight, drawableBottom);
 
                     final MarginLayoutParams layoutParams = (MarginLayoutParams) mBtnCamera.getLayoutParams();
                     layoutParams.topMargin = drawableTop;

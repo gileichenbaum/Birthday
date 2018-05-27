@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <birthday.nanit.com.happybirthday.TransparentPositionLayout
         android:id="@+id/birthday_activity_background_layout"
         android:layout_width="match_parent"
@@ -15,18 +16,24 @@
         android:scaleType="center"
         app:displayMode="2"/>
 
+    <ImageView
+        android:id="@+id/birthday_activity_btn_close"
+        android:layout_width="@dimen/birthday_activity_btn_close_size"
+        android:layout_height="@dimen/birthday_activity_btn_close_size"
+        app:srcCompat="@drawable/ic_close_black_24dp"/>
+
     <TextView
         android:id="@+id/birthday_activity_txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginStart="@dimen/birthday_activity_btn_close_size"
+        android:layout_marginLeft="@dimen/birthday_activity_btn_close_size"
+        android:layout_marginTop="@dimen/birthday_activity_name_margin_top"
         android:gravity="center"
+        android:maxLines="2"
         android:textAllCaps="true"
         android:textColor="#000000"
-        android:maxLines="2"
         android:textSize="25sp"
         android:textStyle="bold"
         tools:text="Today Lilly is"/>

@@ -36,6 +36,8 @@ public class PreferenceUtil {
     }
 
     public static void saveImageUri(@NonNull Context context, String uriString) {
-        getEditor(context).putString(Constants.PREF_IMAGE_URI, uriString).apply();
+        final SharedPreferences.Editor editor = getEditor(context);
+        editor.remove(Constants.PREF_IMAGE_URI).apply();
+        editor.putString(Constants.PREF_IMAGE_URI, uriString).apply();
     }
 }
